@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Inscription</title>
+<link href="" th:href="@{css/inscription.css}" rel="stylesheet" />
+</head>
+<body>
+	<fieldset>
+		<h1>Inscription</h1>
+		<div>
+			<label for="nom utilisateur">Nom d'utilisateur :</label> <input
+				type="text" id="username" size="25" maxlength="100" required="required">
+		</div>
+
+		<div>
+			<br> <label for="nom">Nom :</label> <input type="text" id="nom"
+				size="25" maxlength="100" required="required">
+		</div>
+		<div>
+			<br> <label for="prenom">Prenom :</label> <input type="text"
+				id="prenom" size="25" maxlength="100" required="required">
+		</div>
+		<div>
+			<br> <label for="age">Age :</label> <input type="number"
+				id="age" size="25" maxlength="100" required="required">
+		</div>
+		<div>
+			<br> <label for="mail">Mail :</label> <input type="email"
+				id="mail" size="25" maxlength="100" required="required"> 
+		</div>
+		<div>
+			<br> <label for="pass">Mot de passe :</label> <input
+				type="password" id="pass" name="pass" required="required">
+		</div>
+
+
+	</fieldset>
+
+
+	<form th:action="@{/seConnect}" method="GET">
+
+		<input class= "ins" id="inscription" type="submit" value="s'inscrire"
+			onclick="inscription();" />
+
+	</form>
+
+	<script type="text/javascript">
+		document.getElementById("inscription").onclick = function() {
+			var text = '{"';
+			text += 'username":"' + document.getElementById("username").value
+					+ '",'
+			text += '"mdp":"' + document.getElementById("pass").value + '",'
+			text += '"nom":"' + document.getElementById("nom").value + '",'
+			text += '"prenom":"' + document.getElementById("prenom").value
+					+ '",'
+			text += '"age":"' + document.getElementById("age").value + '",'
+			text += '"mail":"' + document.getElementById("mail").value + '"}'
+
+			var user = JSON.parse(text);
+			var httpRequest = new XMLHttpRequest();
+			httpRequest.open('POST', "http://localhost:8080/comptes/creation",
+					true);
+			httpRequest.setRequestHeader("Content-type", "application/json");
+			httpRequest.send(JSON.stringify(user));
+
+		};
+	</script>
+
+</body>
+</html>

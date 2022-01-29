@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Liste des comptes</title>
+<link href="" th:href="@{../css/afficheComptes.css}" rel="stylesheet" />
+</head>
+<body>
+<fieldset>
+	<table>
+		<tr>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Identifiant</th>
+			<th>Montant</th>
+		</tr>
+		<tr th:each="comptes : ${comptes}">
+			<td th:text="${comptes.p.nom}"></td>
+			<td th:text="${comptes.p.prenom}"></td>
+			<td th:text="${comptes.identifiant}"></td>
+			<td th:text="${comptes.montant}"></td>
+
+			<td><a th:href="@{/connection/comptes/modif/{id}(id=${comptes.identifiant})}">Update</a>
+
+
+		</tr>
+	</table>
+</fieldset>
+
+
+<form th:action="@{/connection/{id} (id=${user.username})}" method="GET">
+
+
+ <input class="retour" id="retour" type="submit"  value="retour"/> 
+ 
+ </form> 
+
+</body>
+</html>

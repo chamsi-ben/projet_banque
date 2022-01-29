@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Connection</title>
+<link href="" th:href="@{css/seConnecter.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<form th:action="@{/comptes/connection}" th:object="${log}"
+		method="POST">
+
+		<fieldset>
+			<h1>Se connecter</h1>
+			<label for="username">Username :</label> <input type="text"
+				id="username" th:field="*{username}" size="25" maxlength="100"
+				placeholder="toto" /> <br> <label for="pass">Mot de
+				passe :</label> <input type="password" id="pass" th:field="*{pwd}"
+				name="pass" placeholder="Votre mot de passe" />
+		</fieldset>
+		<input class="connect" id="connection" type="submit" value="connection">
+	</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1" />
+
+<title>Menu principal</title>
+<link href="" th:href="@{css/menu_principal.css}" rel="stylesheet" />
+</head>
+<body>
+	<fieldset>
+
+	</fieldset>
+	
+<form th:action="@{/seConnect}" method="GET">
+
+			<input class="connection" id="connection" type="submit"
+				value="connection" />
+
+		</form>
+
+		<form th:action="@{/Inscrip}" method="GET">
+
+			<input class="ins" id="ins" type="submit" value="inscription" />
+
+	</form>
+
+</body>
+</html>

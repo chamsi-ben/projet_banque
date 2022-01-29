@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Modification du compte</title>
+<link href="" th:href="@{../../../css/modif.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<fieldset>
+
+
+<form th:action="@{/ajoutMontant/{id} (id=${compte.identifiant})}" th:object = "${compte}" method="POST">
+	<label for="montant">Ajout montant :</label>
+	<input type="number" name="ajoutMontant" th:field="*{ajoutMontant}" size="25" maxlength="100" required="required">
+
+ <input id="ajout" type="submit"  value="ajouter"/> 
+ 
+ </form>
+ 
+ <form th:action="@{/virement/{id} (id=${compte.identifiant})}" th:object = "${compte}" method="POST">
+	<label for="montant">Virement :</label>
+	<label>montant</label>
+	<input type="number" name="virement" th:field="*{montantVirement}" size="25" maxlength="100" required="required">
+	<label>identifiant du compte</label>
+	<input type="number" name="virement" th:field="*{idVirement}" size="25" maxlength="100" required="required">
+	
+ <input id="ajout" type="submit"  value="virement"/> 
+ 
+ </form>
+ 
+ 
+</fieldset>
+
+<form th:action="@{/affiche/{id} (id=${user.username})}" method="GET">
+
+
+<input class="retour" id="retour" type="submit"  value="retour"/> 
+ 
+ </form> 
+
+</body>
+</html>

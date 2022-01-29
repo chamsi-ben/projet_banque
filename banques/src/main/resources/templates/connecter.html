@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Banque</title>
+<link href="" th:href="@{../css/co.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Information du client</h1>
+
+	<div class="nom">
+		<strong> Nom </strong>
+		<p th:text="${user.nom}"></p>
+
+	</div>
+	<div class="prenom">
+		<strong>prenom</strong>
+		<p th:text="${user.prenom}"></p>
+	</div>
+
+	<div class="username">
+		<strong>username</strong>
+		<p th:text="${user.username}"></p>
+	</div>
+
+
+
+	<fieldset>
+
+		<form
+			th:action="@{/connection/ajoutComptes/{id} (id=${user.username})}"
+			th:object="${user}" method="POST">
+
+			<input class="ajoutCompte" id="comptes" type="submit"
+				value="ajoutCompte" />
+
+		</form>
+
+		<form th:action="@{/connection/comptes/{id} (id=${user.username})}"
+			th:object="${user}" method="POST">
+
+			<input class="liste" id="liste" type="submit"
+				value="Liste des comptes" />
+
+		</form>
+
+		<form th:action="@{/deconnection/{id} (id=${user.username})}"
+			th:object="${user}" method="POST">
+			<input class="deconnecter" id="deconnecter" type="submit"
+				value="deconnection" />
+
+		</form>
+	</fieldset>
+
+
+
+
+
+
+
+</body>
+</html>

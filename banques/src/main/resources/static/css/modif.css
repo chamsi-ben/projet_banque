@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+.retour {
+	font-size: 17px;
+    border-width:10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 60%;
+    left: 50%;
+    }
+
+body {
+  background-image: url(fond.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+fieldset
+{
+	position: absolute;
+	top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	font-family: Times;
+	background-color: #D3D3D3;
+	margin-bottom: 10px;
+	border-radius: 7px;
+	box-shadow: #505050 3px 3px 8px;
+}
